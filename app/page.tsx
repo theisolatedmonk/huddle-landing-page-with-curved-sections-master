@@ -18,6 +18,7 @@ import illustrationFlowingConversation from '@/public/images/illustration-flowin
 import illustrationGrowTogether from '@/public/images/illustration-grow-together.svg';
 import illustrationYourUsers from '@/public/images/illustration-your-users.svg';
 import logo from '@/public/images/logo.svg';
+import logoWhite from '@/public/images/logo-white.svg';
 import screenMockups from '@/public/images/screen-mockups.svg';
 
 import { AiFillFacebook, AiFillInstagram, AiFillTwitterSquare } from 'react-icons/ai'
@@ -61,7 +62,16 @@ export default function Home() {
 
 
       </div>
-      <Section imagePosition={'left'} />
+      <div className='flex flex-col gap-20'>
+        {cardData.map((item, index) => (
+          <Section
+            {...item}
+            key={index}
+          />
+        ))
+        }
+
+      </div >
       <div className="flex flex-col z-40 items-center">
         <h4 className='font-bold text-3xl'>Ready To Build Your Community?</h4>
         <Button className={'bg-Pink hover:bg-LightPink text-white rounded-full w-80 p-4 '} ButtonName={'Get Started For Free '} />
@@ -82,7 +92,7 @@ export default function Home() {
         </section>
         <div className="flex w-full z-40 items-center">
           <div className="flex flex-col">
-            <Image src={logo} alt={''} />
+            <Image src={logoWhite} alt={''} />
             <p className="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nulla quam, hendrerit lacinia vestibulum a, ultrices quis sem.</p>
             <div className="flex ">
               <Image src={iconPhone} alt={''} className='bg-slate-400' />
@@ -120,6 +130,7 @@ export default function Home() {
 
 import React from 'react'
 import Section from '@/components/Section';
+import { cardData } from '@/assets/data';
 
 type Props = {
   className: string
