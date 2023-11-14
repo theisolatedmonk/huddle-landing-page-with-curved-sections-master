@@ -19,19 +19,16 @@ import { cn } from '@/lib/utlits';
 export default function Section(props: CardData) {
     return (
 
-        <div className={cn('relative w-full  flex items-center justify-between', { 'flex-row-reverse': props.imagePosition === 'left' })}>
-            <section className='absolute z-0'>
-                <div className="flex flex-col ">
+        <div className={cn('relative w-full   flex items-center justify-between h-[700px] border-2 border-red-400', { 'flex-row-reverse': props.imagePosition === 'left' })}>
+            <section className='flex flex-col h-full  absolute inset-0 z-0'>
 
-                    {props.bgTopDesktop &&
-                        <Image src={props.bgTopDesktop} alt={''} className='w-full  rotate-180  h-80' height={200} width={200} />
-                    }
+                {props.bgTopDesktop &&
+                    <Image src={props.bgTopDesktop} alt={''} className='w-full   object-left   h-full' height={200} width={200} />
+                }
 
-                    {props.bgBottomDesktop &&
-                        <Image src={props.bgBottomDesktop} alt={''} className='w-full  rotate-180  h-80' height={200} width={200} />}
-                </div>
-                {/* image 1 */}
-                {/* image 2 */}
+                {props.bgBottomDesktop &&
+                    <Image src={props.bgBottomDesktop} alt={''} className='w-full    object-left  h-full' height={200} width={200} />}
+
             </section>
 
             {/* text */}

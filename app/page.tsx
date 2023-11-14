@@ -26,43 +26,45 @@ import { AiFillFacebook, AiFillInstagram, AiFillTwitterSquare } from 'react-icon
 
 export default function Home() {
   return (
-    <div className=" w-full h-screen  flex flex-col">
-      <div className="flex justify-between">
-        <div className="flex items-center">
-          {/* <Image src={iconMessages} alt={''} /> */}
-          {/* <Image src={iconMessages} alt={''} /> */}
-          <Image src={logo} alt={''} />
-        </div>
-        <Button className={'bg-white text-Pink  hover:text-LightPink rounded-full py-2 px-8'} ButtonName={'Try It Free'} />
+    <div className=" w-full h-screen  flex flex-col items-center gap-10">
+      <div className="flex justify-between w-full p-10">
+        {/* <Image src={iconMessages} alt={''} /> */}
+        {/* <Image src={iconMessages} alt={''} /> */}
+        <Image src={logo} alt={''} />
+        <Button className={'bg-white text-Pink  hover:text-LightPink rounded-full py-2 px-8 text-sm'} ButtonName={'Try It Free'} />
 
       </div>
-      <div className="flex flex-col">
-        <h4 className="font-bold">
-          Build The Community Your Fans Will Love
-        </h4>
-        <p className="">
-          Huddle re-imagines the way we build communities. You have a voice, but so does your audience. Create connections with your users as you engage in genuine discussion.
-        </p>
-        <Button className={'bg-Pink hover:bg-LightPink text-white rounded-full w-80 p-4 '} ButtonName={'Get Started For Free'} />
-      </div>
-
-      <Image src={screenMockups} alt={''} />
-
-      <div className="flex justify-between">
-        <div className="flex flex-col">
-          <Image src={iconMessages} alt={''} />
-          <h4 className="font-bold text-3xl">1.4k+</h4>
-          <h1 className="">Communities Formed</h1>
-        </div>
-        <div className="flex flex-col">
-          <Image src={iconMessages} alt={''} />
-          <h4 className="font-bold text-3xl">1.4k+</h4>
-          <h1 className="">Communities Formed</h1>
+      <div className="flex flex-col gap-10 px-20">
+        <div className="flex flex-col items-center text-center gap-4 ">
+          <h4 className="font-bold text-3xl ">
+            Build The Community Your Fans Will Love
+          </h4>
+          <p className="w-[430px]  text-sm">
+            Huddle re-imagines the way we build communities. You have a voice, but so does your audience. Create connections with your users as you engage in genuine discussion.
+          </p>
+          <Button className={'bg-Pink hover:bg-LightPink text-white rounded-full w-72 p-3 '} ButtonName={'Get Started For Free'} />
         </div>
 
+        <Image src={screenMockups} alt={''} />
+
+        <div className="flex justify-between w-full ">
+          <div className="flex flex-col items-center">
+            <Image src={iconMessages} alt={''} />
+            <h4 className="font-bold text-5xl">1.4k+</h4>
+            <h1 className="">Communities Formed</h1>
+          </div>
+          <div className="flex flex-col items-center ">
+            <Image src={iconMessages} alt={''} />
+            <h4 className="font-bold text-5xl">2.7m+</h4>
+            <h1 className="">Communities Formed</h1>
+          </div>
+
+
+        </div>
 
       </div>
-      <div className='flex flex-col gap-20'>
+
+      <div className='flex flex-col gap-20 mt-40 '>
         {cardData.map((item, index) => (
           <Section
             {...item}
@@ -79,7 +81,7 @@ export default function Home() {
 
 
 
-      <div className="flex flex-col">
+      <div className="flex flex-col w-full bg-VeryDarkCyan">
         <section className='absolute z-0'>
           <div className="flex flex-col bg-red-500 ">
 
@@ -90,33 +92,34 @@ export default function Home() {
           {/* image 1 */}
           {/* image 2 */}
         </section>
-        <div className="flex w-full z-40 items-center">
-          <div className="flex flex-col">
-            <Image src={logoWhite} alt={''} />
-            <p className="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nulla quam, hendrerit lacinia vestibulum a, ultrices quis sem.</p>
-            <div className="flex ">
-              <Image src={iconPhone} alt={''} className='bg-slate-400' />
+        <div className="flex w-full z-40 items-center text-white justify-between p-16 text-sm">
+          <div className="flex flex-col w-96 gap-4">
+            <Image src={logoWhite} alt={''} className='w-40' />
+
+            <p className="pr-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nulla quam, hendrerit lacinia vestibulum a, ultrices quis sem.</p>
+            <div className="flex items-center gap-4 ">
+              <Image src={iconPhone} alt={''} className='' />
               <p className="">Phone: +1-543-123-4567</p>
             </div>
-            <div className="flex ">
-              <Image src={iconEmail} alt={''} className='bg-slate-400' />
+            <div className="flex gap-4">
+              <Image src={iconEmail} alt={''} className='' />
               <p className="">example@huddle.com</p>
             </div>
           </div>
 
-          <div className="flex flex-col">
-            <h3 className="">NEWSLETTER</h3>
-            <p className="">To recieve tips on how to grow your community, sign up to our weekly newsletter. We’ll never send you spam or pass on your email address</p>
-            <div className="flex">
-              <input type="text" className='' />
+          <div className="flex flex-col w-96 gap-4">
+            <h3 className="font-bold">NEWSLETTER</h3>
+            <p className="pr-12">To recieve tips on how to grow your community, sign up to our weekly newsletter. We’ll never send you spam or pass on your email address</p>
+            <div className="flex gap-4">
+              <input type="text" className='rounded-md w-60' />
               <Button className={'bg-Pink hover:bg-LightPink text-white rounded-md w-40 px-4 py-2'} ButtonName={'Subscribe'} />
             </div>
           </div>
         </div>
-        <div className="flex gap-4 bg-red-600 z-40">
-          <AiFillFacebook className='text-white' />
-          <AiFillInstagram className='text-white' />
-          <AiFillTwitterSquare className='text-white' />
+        <div className="flex gap-4 bg-VeryDarkCyan z-40 px-16 pb-10">
+          <AiFillFacebook className='text-white w-10 h-10' />
+          <AiFillInstagram className='text-white w-10 h-10' />
+          <AiFillTwitterSquare className='text-white w-10 h-10' />
         </div>
       </div>
     </div>
