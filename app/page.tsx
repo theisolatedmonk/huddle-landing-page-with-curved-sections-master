@@ -1,4 +1,8 @@
+'use client'
+
 import Image from 'next/image'
+import React, { useState } from 'react';
+
 
 import bgFooterTopDesktop from '@/public/images/bg-footer-top-desktop.svg';
 import bgFooterTopMobile from '@/public/images/bg-footer-top-mobile.svg';
@@ -22,9 +26,28 @@ import logoWhite from '@/public/images/logo-white.svg';
 import screenMockups from '@/public/images/screen-mockups.svg';
 
 import { AiFillFacebook, AiFillInstagram, AiFillTwitterSquare } from 'react-icons/ai'
-
+import Section from '@/components/Section';
+import { cardData } from '@/assets/data';
 
 export default function Home() {
+
+
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+
+
+  const handleSubscribe = () => {
+    // Validate the email format (you can use a regular expression for a basic check)
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      setError('Check your email please');
+    } else {
+      setError('');
+      // Perform subscription logic or API call here
+    }
+  };
+
   return (
     <div className=" w-full h-screen  flex flex-col items-center gap-10">
       <div className="flex justify-between w-full p-10">
@@ -111,15 +134,28 @@ export default function Home() {
             <h3 className="font-bold">NEWSLETTER</h3>
             <p className="pr-12">To recieve tips on how to grow your community, sign up to our weekly newsletter. We’ll never send you spam or pass on your email address</p>
             <div className="flex gap-4">
-              <input type="text" className='rounded-md w-60' />
-              <Button className={'bg-Pink hover:bg-LightPink text-white rounded-md w-40 px-4 py-2'} ButtonName={'Subscribe'} />
+              <div className="flex flex-col">
+                <input
+                  type="email"
+                  className={`rounded-md w-60 text-black h-10 outline-none px-2 ${error ? 'border-red-500' : ''}`}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                {error && <p className="text-sm text-red-500">{error}</p>}
+              </div>
+              <button
+                className="bg-Pink hover:bg-LightPink text-white rounded-md w-40 px-4 py-2 h-10"
+                onClick={handleSubscribe}
+              >
+                Subscribe
+              </button>
             </div>
           </div>
         </div>
         <div className="flex gap-4 bg-VeryDarkCyan z-40 px-16 pb-10">
-          <AiFillFacebook className='text-white w-10 h-10' />
-          <AiFillInstagram className='text-white w-10 h-10' />
-          <AiFillTwitterSquare className='text-white w-10 h-10' />
+          <AiFillFacebook className='text-white w-10 h-10 hover:text-blue-400' />
+          <AiFillInstagram className='text-white w-10 h-10 hover:text-blue-400' />
+          <AiFillTwitterSquare className='text-white w-10 h-10 hover:text-blue-400' />
         </div>
       </div>
     </div>
@@ -131,9 +167,6 @@ export default function Home() {
 
 
 
-import React from 'react'
-import Section from '@/components/Section';
-import { cardData } from '@/assets/data';
 
 type Props = {
   className: string
